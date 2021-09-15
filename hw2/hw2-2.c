@@ -308,6 +308,17 @@ void bubble_sort_container_arr(struct container *arr, int n) {
 /////////////////////////////////////////////////////////////
 void insertion_sort_container_arr(struct container *arr, int n) {
   /* FILE */
+  int i, j;
+  struct container temp;
+
+  for(i=1; i<n; i++){
+    for(j=i; j>0; j--){
+      if (compare_words_container(arr, j, j-1)>0){
+        break;
+      }
+      swap_container_arr(arr, j, j-1, &temp);
+    }
+  }
 }
 
 /////////////////////////////////////////////////////////////
@@ -315,6 +326,19 @@ void insertion_sort_container_arr(struct container *arr, int n) {
 /////////////////////////////////////////////////////////////
 void selection_sort_container_arr(struct container *arr, int n) {
   /* FILE */
+  int i, j;
+  int small_index;
+  struct container temp;
+
+  for (i=0; i < n-1; i++){
+    small_index = i;
+    for (j=i+1; j<n; j++){
+      if (compare_words_container(arr, j, small_index) < 0){
+        small_index = j;
+      }
+    }
+    swap_container_arr(arr, i, small_index, &temp);
+  }
 }
 
 /////////////////////////////////////////////////////////////

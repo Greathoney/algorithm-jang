@@ -253,15 +253,16 @@ void insertion_sort_chararr(char **arr, int n) {
   /* FILE */
   int i, j;
   char *temp;
+
   for(i=1; i<n; i++){
-    temp = arr[i];
     for(j=i; j>0; j--){
-      if (!strcmp(temp, arr[j-1])<0){
+      if (strcmp(arr[j], arr[j-1])>0){
         break;
       }
+      temp = arr[j];
       arr[j] = arr[j-1];
+      arr[j-1] = temp;
     }
-    arr[j] = temp;
   }
 }
 
@@ -285,7 +286,6 @@ void selection_sort_chararr(char **arr, int n) {
     arr[i] = arr[small_index];
     arr[small_index] = temp;
   }
-
 }
 
 /////////////////////////////////////////////////////////////
