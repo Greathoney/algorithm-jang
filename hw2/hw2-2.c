@@ -65,8 +65,12 @@ int copy_container(struct container *a, struct container *b) {
 void swap_container(struct container *a, struct container *b,
     struct container *temp) {
   copy_container(temp,a);	// temp = a
-  copy_container(a,b);	// a = b
+  copy_container(a,b);		// a = b
   copy_container(b,temp);	// b = temp
+}
+
+int compare_container(struct container *a, struct container *b) {
+  return strcmp(search_container(a), search_container(b));
 }
 
 
@@ -76,10 +80,10 @@ void swap_container_arr(struct container C[], int i, int j,
   swap_container(C+i, C+j, temp);
 }
 
-int compare_words_container(struct container C[], int i, int j) {
-  return strcmp(search_container(C+i), search_container(C+j));
+int compare_container_arr(struct container C[], int i, int j) {
+  //return strcmp(search_container(C+i), search_container(C+j));
+  return compare_container(C+i, C+j);
 }
-
 
 
 // <<SAME AS 2-1>>
@@ -296,18 +300,21 @@ void bubble_sort_container_arr(struct container *arr, int n) {
   struct container temp;
   for (i=n-1; i>0; i--) {
     for (j=0; j<i; j++) {
-      if ( compare_words_container(arr, j, j+1) > 0 ) {
+      if ( compare_container_arr(arr, j, j+1) > 0 ) {
 	swap_container_arr(arr, j, j+1, &temp);
       }
     }
   }
 }
 
+/* FILL */
+/* NOTE: addtional funcstions can be defined */
+
 /////////////////////////////////////////////////////////////
 // insertion sort
 /////////////////////////////////////////////////////////////
 void insertion_sort_container_arr(struct container *arr, int n) {
-  /* FILE */
+  /* FILL */
   int i, j;
   struct container temp;
 
@@ -325,7 +332,7 @@ void insertion_sort_container_arr(struct container *arr, int n) {
 // selection sort
 /////////////////////////////////////////////////////////////
 void selection_sort_container_arr(struct container *arr, int n) {
-  /* FILE */
+  /* FILL */
   int i, j;
   int small_index;
   struct container temp;
@@ -360,6 +367,8 @@ int main(int argc, char *argv[])
 	" method = 3 --- selection sort\n");
     exit(0);
   }
+
+  method = atoi(argv[1]);
 
   /* read text file of words:
    * number_of_intergers word1 word2 ... */

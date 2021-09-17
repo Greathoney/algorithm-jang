@@ -238,19 +238,22 @@ void bubble_sort_chararr(char **arr, int n) {
   for (i=n-1; i>0; i--) {
     for (j=0; j<i; j++) {
       if (strcmp(arr[j], arr[j+1]) > 0 ) {
-        temp = arr[j];
-        arr[j] = arr[j+1];
-        arr[j+1] = temp;
+	temp = arr[j];
+	arr[j] = arr[j+1];
+	arr[j+1] = temp;
       }
     }
   }
 }
 
+/* FILL */
+/* NOTE: addtional funcstions can be defined */
+
 /////////////////////////////////////////////////////////////
 // insertion sort
 /////////////////////////////////////////////////////////////
 void insertion_sort_chararr(char **arr, int n) {
-  /* FILE */
+  /* FILL */
   int i, j;
   char *temp;
 
@@ -270,7 +273,7 @@ void insertion_sort_chararr(char **arr, int n) {
 // selection sort
 /////////////////////////////////////////////////////////////
 void selection_sort_chararr(char **arr, int n) {
-  /* FILE */
+  /* FILL */
   int i, j;
   int small_index;
   char *temp;
