@@ -320,7 +320,7 @@ void insertion_sort_container_arr(struct container *arr, int n) {
 
   for(i=1; i<n; i++){
     for(j=i; j>0; j--){
-      if (compare_words_container(arr, j, j-1)>0){
+      if (compare_container_arr(arr, j, j-1)>0){
         break;
       }
       swap_container_arr(arr, j, j-1, &temp);
@@ -340,7 +340,7 @@ void selection_sort_container_arr(struct container *arr, int n) {
   for (i=0; i < n-1; i++){
     small_index = i;
     for (j=i+1; j<n; j++){
-      if (compare_words_container(arr, j, small_index) < 0){
+      if (compare_container_arr(arr, j, small_index) < 0){
         small_index = j;
       }
     }
